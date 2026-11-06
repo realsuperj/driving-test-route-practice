@@ -53,17 +53,70 @@ button.on{background:var(--acc);color:var(--bg);border-color:var(--acc);font-wei
 .auto .mt{fill:#b3261e;font-size:13px}
 .auto.act .mk{fill:#d8402f}
 .auto.act .mt{fill:#fff}
+.tabs{background:var(--accbg);padding:6px;border-radius:18px;gap:4px;margin-bottom:18px}
+.tabs button{border:0;background:transparent;color:var(--ink);min-height:68px;border-radius:13px;font-size:17px;padding:6px 2px;line-height:1.3}
+.tabs button.on{background:var(--acc);color:var(--bg)}
+.ic{display:block;font-size:24px;line-height:1.2}
+.row button{min-height:46px;font-size:18px;border-radius:999px;padding:6px 10px}
+.row button.on{background:var(--accbg);color:var(--acc);border-color:var(--acc);font-weight:700}
+.row:not(.seg)::before{content:"选择路线";flex-basis:100%;color:var(--mute);font-size:15px}
+.seg{background:var(--line);padding:4px;border-radius:12px;gap:4px}
+.seg button{border:0;background:transparent;border-radius:9px;min-height:46px}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.row button{min-width:68px}
+main{padding:10px 12px 120px}
+h1{font-size:20px;margin:2px 0 8px}
+.mantra{font-size:15px;padding:8px 12px;margin-bottom:10px}
+.big{font-size:30px}
+.card{padding:14px;margin-bottom:12px}
+.nav .on{flex:1.5}
+.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:640px;margin:0;border-radius:18px 18px 0 0;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -2px 10px rgba(0,0,0,.18);z-index:20}
+.tabs button{min-height:58px;font-size:15px}
+.ic{font-size:22px}
+#ab{min-height:112px;padding:12px}
+#ab .big{font-size:26px;margin:2px 0 6px}
+#ab .tip{font-size:16px;margin-top:6px;padding:8px 10px}
+#wn{font-size:15px;padding:6px 10px;margin-bottom:6px!important}
+#map{max-height:54vh!important}
+#p4 .row::before{display:none}
+#p4 .nav{margin-top:10px}
+#p4 .nav button{min-height:46px;font-size:17px;padding:6px}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(135deg,#0c5a5a,#13a3a0);color:#fff;border-radius:18px;padding:14px 16px;margin-bottom:12px;box-shadow:0 4px 14px rgba(15,107,107,.3)}
+.hero h1{margin:0;font-size:22px;color:#fff;letter-spacing:1px}
+.hero .sub{font-size:14px;opacity:.92;margin-top:2px}
+.hero .hi{font-size:36px;line-height:1}
+#gm{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-weight:600}
+.mt0{font-size:13px;background:var(--warn);color:var(--warnbg);border-radius:6px;padding:1px 8px}
+.ch{background:var(--card);color:var(--ink);border-radius:999px;padding:1px 10px}
+button{transition:transform .08s,box-shadow .15s;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+button:active{transform:scale(.97)}
+.card{border:1px solid var(--line);border-radius:18px;box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.row{margin-bottom:14px}
+.nav button.on{background:linear-gradient(135deg,#0c5a5a,#12908e);border-color:transparent;color:#fff;box-shadow:0 3px 8px rgba(15,107,107,.35)}
+.tabs button.on{background:linear-gradient(135deg,#0c5a5a,#12908e);color:#fff;box-shadow:0 2px 8px rgba(15,107,107,.35)}
+.bar{height:12px;border-radius:8px}
+.bar i{background:linear-gradient(90deg,#12908e,#0c5a5a);border-radius:8px;transition:width .25s}
+#p1 .card>.small:first-child{display:inline-block;background:var(--accbg);color:var(--acc);border-radius:999px;padding:2px 12px;font-weight:700;font-size:14px}
+.tip{border-left:5px solid var(--acc);border-radius:10px}
+.tip[style*="--badbg"]{border-left-color:var(--bad)}
+#p1 .list li{display:flex;align-items:center;gap:10px;padding:9px 4px}
+.nb{flex:none;width:26px;height:26px;border-radius:50%;background:var(--accbg);color:var(--acc);font-size:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.opts button{border-radius:14px;box-shadow:0 2px 0 var(--line)}
+.score{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 12px;color:var(--ink)}
+#map{box-shadow:0 3px 12px rgba(0,0,0,.1)}
+main>.small{text-align:center;margin-top:18px}
 </style>
 </head>
 <body>
 <main>
-<h1>科三路线记忆练习</h1>
-<div class="mantra">变道口诀：灯（3秒）→ 镜 → 回头 → 打 → 回正 → 关灯</div>
+<header class="hero"><div><h1>科三路线记忆练习</h1><div class="sub">C2 · 羊草庄考场 · 三条路线 + 灯光</div></div><div class="hi">🚗</div></header>
+<div class="mantra" id="gm"><span class="mt0">变道口诀</span><span class="ch">灯（3秒）</span>→<span class="ch">镜</span>→<span class="ch">回头</span>→<span class="ch">打</span>→<span class="ch">回正</span>→<span class="ch">关灯</span></div>
 <div class="tabs">
-<button id="t1" class="on">背路线</button>
-<button id="t4">看动画</button>
-<button id="t2">下一步？</button>
-<button id="t3">灯光</button>
+<button id="t1" class="on"><span class="ic">📍</span>背路线</button>
+<button id="t3"><span class="ic">💡</span>背灯光</button>
+<button id="t4"><span class="ic">🚗</span>看动画</button>
+<button id="t2"><span class="ic">✏️</span>练习场</button>
+
 </div>
 
 <section id="p1"></section>
@@ -142,11 +195,13 @@ var $=function(i){return document.getElementById(i)};
 
 /* tabs */
 function show(n){
+ $("gm").style.display=(n===1||n===4)?"":"none";
+ window.scrollTo(0,0);
  for(var i=1;i<=4;i++){$("p"+i).classList.toggle("hide",i!==n);$("t"+i).classList.toggle("on",i===n)}
 }
 $("t1").onclick=function(){show(1)};
 $("t2").onclick=function(){show(2);newQ()};
-$("t3").onclick=function(){show(3);newL()};
+$("t3").onclick=function(){show(3)};
 $("t4").onclick=function(){show(4)};
 
 /* learn */
@@ -162,7 +217,7 @@ function learn(){
  h+='<div class="small" style="margin-top:12px">接下来：'+(nx?'<b>'+nx.n+'</b>':'考试结束')+'</div>';
  h+='<div class="nav"><button id="pv">上一步</button><button id="nx" class="on">下一步</button></div></div>';
  h+='<div class="card"><b>整条路线一口气念：</b><ul class="list">';
- st.forEach(function(x,i){h+='<li'+(i===idx?' style="background:var(--accbg);border-radius:8px"':'')+'>'+(i+1)+'. '+(x.a?'<b style="color:var(--bad)">⚠ '+x.n+'（没语音，自己动手）</b>':x.n)+'</li>'});
+ st.forEach(function(x,i){h+='<li'+(i===idx?' style="background:var(--accbg);border-radius:8px"':'')+'><span class="nb">'+(i+1)+'</span>'+(x.a?'<b style="color:var(--bad)">⚠ '+x.n+'（没语音，自己动手）</b>':x.n)+'</li>'});
  h+='</ul></div>';
  $("p1").innerHTML=h;
  $("p1").querySelectorAll("[data-r]").forEach(function(b){b.onclick=function(){cur=b.dataset.r;idx=0;learn()}});
@@ -207,9 +262,9 @@ var L=[
 ["照明良好的道路行驶","近光灯"],["夜间直行通过路口","近光灯"],["夜间与机动车会车","近光灯"],["夜间同方向近距离跟车","近光灯"],["通过交通信号灯控制的路口","近光灯"],
 ["没有路灯、照明不良的道路","远光灯"],
 ["通过没有交通信号灯控制的路口","远近光交替"],["通过急弯","远近光交替"],["通过坡路","远近光交替"],["通过拱桥","远近光交替"],["通过人行横道","远近光交替"],["超越前方车辆","远近光交替"],
-["路边临时停车","双闪 + 示廊灯"]
+["路边临时停车","双闪 + 行车灯"]
 ];
-var LO=["近光灯","远光灯","远近光交替","双闪 + 示廊灯"],lq,lok=0,lt=0;
+var LO=["近光灯","远光灯","远近光交替","双闪 + 行车灯"],lq,lok=0,lt=0;
 function newL(){
  lq=pick(L);
  var h='<div class="score">答对 '+lok+' / '+lt+'</div><div class="card"><div class="small">语音提示：夜间</div><div class="big">'+lq[0]+'</div><div>要做什么？</div><div class="opts">';
@@ -244,7 +299,7 @@ function banner(s){
  $("m"+s).classList.add("act");
 }
 function setPoint(i){
- A.i=i;A.t=0;var p=pts()[i];
+ A.i=i;A.t=0;if(i===0)A.ang=undefined;var p=pts()[i];
  if(p[2]>=0){banner(p[2]);A.wait=2.8/A.sp}else A.wait=0;
 }
 function finish(){A.done=true;$("ab").insertAdjacentHTML("beforeend",'<div class="fb" style="color:var(--ok)">路线走完了！点“重播”再来一遍。</div>');lbl()}
@@ -253,8 +308,17 @@ function place(){
  var p=pts(),n=p.length-1,a,b,t=A.t;
  if(A.i>=n){a=p[n-1];b=p[n];t=1}else{a=p[A.i];b=p[A.i+1]}
  var x=a[0]+(b[0]-a[0])*t,y=a[1]+(b[1]-a[1])*t,ang=Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI;
- var rr=ang*Math.PI/180;x+=-Math.sin(rr)*A.off;y+=Math.cos(rr)*A.off;
- $("car").setAttribute("transform","translate("+x+","+y+") rotate("+ang+")");
+ if(A.ang===undefined)A.ang=ang;
+ var df=((ang-A.ang)%360+540)%360-180;A.ang+=df*Math.min(1,A.dt*7);
+ var rot=-90-A.ang;
+ $("world").setAttribute("transform","translate(145,300) rotate("+rot+") scale(1.6) translate("+(-x)+","+(-y)+")");
+ $("car").setAttribute("transform","translate("+(145+A.off*1.6)+",300)");
+ document.querySelectorAll("#world .mt").forEach(function(tx){tx.setAttribute("transform","rotate("+(-rot)+" "+tx.getAttribute("x")+" "+(tx.getAttribute("y")-4)+")")});
+ var hs=-1,pj=p[A.i];
+ if(A.wait>0&&pj[2]>=0)hs=pj[2];else{var pk=p[A.i+1];if(pk&&pk[2]>=0&&A.t>0.3)hs=pk[2]}
+ var nm=hs>=0?R[A.r][hs].n:"";
+ $("hint").textContent=/左转/.test(nm)?"⬅ 左转":/右转/.test(nm)?"右转 ➡":/掉头/.test(nm)?"":/超车/.test(nm)?"⬅ 超车 先左后右 ➡":/靠边/.test(nm)?"靠边停车 ➡":/自主/.test(nm)?"⚠ 自主变道":"";
+ $("uicon").style.display=/掉头/.test(nm)?"":"none";
  var g=false,cs=p[A.i][2];
  if(A.wait>0)g=cs>=0&&sigOn(cs);else g=nextSig(A.i+1)&&A.t>0.4;
  $("gl").style.display=g?"":"none";
@@ -265,13 +329,13 @@ function build(){
  h+='</div><div class="small" style="margin-bottom:8px">这条线有 <b style="color:var(--bad)">'+R[A.r].filter(function(x){return x.a}).length+'</b> 次自主变道（地图上红圈“自”）</div><div id="wn" class="mantra" style="visibility:hidden;background:var(--badbg);color:var(--bad);margin-bottom:8px">⚠ 前面要自主变道了！灯、镜、头、打、关</div><div class="card" id="ab"></div>';
  h+='<svg id="map" viewBox="0 0 290 430" role="img" aria-label="路线动画示意图" style="width:100%;height:auto;max-height:62vh;background:var(--card);border:2px solid var(--line);border-radius:14px">';
  var pp=p.map(function(q){return q[0]+","+q[1]}).join(" ");
- h+='<polyline points="'+pp+'" fill="none" style="stroke:var(--road)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>';
+ h+='<g id="world"><polyline points="'+pp+'" fill="none" style="stroke:var(--road)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>';
  h+='<polyline points="'+pp+'" fill="none" style="stroke:var(--acc)" stroke-width="2.5" stroke-dasharray="5 5" stroke-linejoin="round"/>';
  p.forEach(function(q){if(q[2]>=0){var au=R[A.r][q[2]].a;h+='<g id="m'+q[2]+'" class="'+(au?'auto':'')+'"><circle class="mk" cx="'+q[0]+'" cy="'+q[1]+'" r="'+(au?12:9)+'"/><text class="mt" x="'+q[0]+'" y="'+(q[1]+(au?4.5:3.5))+'">'+(au?'自':(q[2]+1))+'</text></g>'}});
- h+='<g id="car"><circle id="gl" class="gl" r="15" style="display:none"/><rect x="-9" y="-5" width="18" height="10" rx="3" fill="#d8402f"/><rect x="2" y="-4" width="4" height="8" rx="1" fill="#fff" opacity=".85"/></g></svg>';
+ h+='</g><text id="hint" x="145" y="34" text-anchor="middle" style="font-size:20px;font-weight:800;fill:var(--ink);stroke:var(--card);stroke-width:5px;paint-order:stroke"></text><g id="uicon" style="display:none" transform="translate(145,40)"><rect x="-62" y="-24" width="124" height="48" rx="9" fill="#1565c0" stroke="#fff" stroke-width="2"/><path d="M-26,14 V-2 A8,8 0 0 0 -42,-2 V8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><polygon points="-50,6 -34,6 -42,18" fill="#fff"/><text x="16" y="8" text-anchor="middle" style="font-size:22px;font-weight:800;fill:#fff">掉头</text></g><g id="car" transform="translate(145,300)"><g transform="rotate(-90) scale(1.4)"><circle id="gl" class="gl" r="15" style="display:none"/><rect x="-9" y="-5" width="18" height="10" rx="3" fill="#a020f0" stroke="#fff" stroke-width="1.5"/><rect x="2" y="-4" width="4" height="8" rx="1" fill="#fff" opacity=".85"/></g></g></svg>';
  h+='<div class="nav"><button id="pl" class="on"></button><button id="pv4">上一步</button><button id="nx4">下一步</button></div>';
  h+='<div class="nav"><button id="rs">重头开始</button><button id="sp"></button></div>';
- h+='<p class="small">地图是示意图，不按比例；数字是第几步，红圈里的“自”是自主变道，红色小车是你，橙色闪光表示这时要打灯。</p>';
+ h+='<p class="small">画面是驾驶员视角，车头永远朝上；地图是示意图，不按比例；数字是第几步，红圈里的“自”是自主变道，紫色小车是你，橙色闪光表示这时要打灯。</p>';
  $("p4").innerHTML=h;
  $("p4").querySelectorAll("[data-ar]").forEach(function(b){b.onclick=function(){A.r=b.dataset.ar;A.done=false;A.play=true;build();setPoint(0)}});
  $("pl").onclick=function(){if(A.done){A.done=false;A.play=true;setPoint(0)}else A.play=!A.play;lbl()};
@@ -283,7 +347,7 @@ function build(){
 }
 function frame(ts){
  requestAnimationFrame(frame);
- var dt=Math.min((ts-last)/1000,0.1);last=ts;
+ var dt=Math.min((ts-last)/1000,0.1);last=ts;A.dt=dt;
  if($("p4").classList.contains("hide")||!$("car"))return;
  var p=pts();
  if(A.play&&!A.done){
@@ -301,6 +365,132 @@ function frame(ts){
  $("wn").style.visibility=(A.play&&A.wait<=0&&na&&A.t>0.3)?"visible":"hidden";
  place();
 }
+/* quiz v2: grouped by route, one score per question (overrides the earlier newQ/answer) */
+var qr="一号线",qlast=-1;
+function qscore(){return "一次答对 "+ok+" / "+tot+" 题 "}
+function newQ(){
+ if(qm==="order"&&qr==="灯光")qr="一号线";
+ if(qr==="灯光"){newL2();return}
+ if(qm==="order"){newO();return}
+ var st=R[qr],i,c=[];
+ st.forEach(function(x,k){if(k>0&&x.a)c.push(k-1)});
+ do{i=(c.length&&Math.random()<0.5)?pick(c):Math.floor(Math.random()*(st.length-1))}while(i===qlast&&st.length>2);
+ qlast=i;
+ var ans=st[i+1].n,pool=[];
+ st.forEach(function(x,k){if(k>0&&x.n!==ans&&pool.indexOf(x.n)<0)pool.push(x.n)});
+ var opts=shuf([ans].concat(shuf(pool).slice(0,3)));
+ q={i:i,ans:ans,done:false,tried:false};
+ var h='<div class="row">';
+ NAMES.forEach(function(n){h+='<button data-qr="'+n+'" class="'+(n===qr?"on":"")+'">'+n+'</button>'});
+ h+='</div><div class="score" id="sc">'+qscore()+'<button id="rz" style="min-height:36px;padding:4px 12px;font-size:15px">清零</button></div>';
+ h+='<div class="card"><div class="small">'+qr+' · 第 '+(i+1)+' 步之后</div>';
+ if(i>0)h+='<div class="small">前一步：'+st[i-1].n+'</div>';
+ h+='<div class="small">刚做完：</div><div class="big">'+st[i].n+'</div><div>接下来是什么？</div><div class="opts">';
+ opts.forEach(function(o){h+='<button data-a="'+o+'">'+o+'</button>'});
+ h+='</div><div id="fb" class="fb"></div><div class="nav"><button id="nq" class="on hide">下一题</button></div></div>';
+ $("p2").innerHTML=h;
+ $("p2").querySelectorAll("[data-a]").forEach(function(b){b.onclick=function(){answer(b)}});
+ modeUI();$("p2").querySelectorAll("[data-qr]").forEach(function(b){b.onclick=function(){qr=b.dataset.qr;qlast=-1;newQ()}});
+ $("rz").onclick=function(){ok=0;tot=0;$("sc").firstChild.nodeValue=qscore()};
+ $("nq").onclick=newQ;
+}
+function answer(b){
+ if(q.done)return;
+ var st=R[qr],good=b.dataset.a===q.ans;
+ if(!q.tried){q.tried=true;tot++;if(good)ok++;$("sc").firstChild.nodeValue=qscore()}
+ if(!good){b.classList.add("bad");b.disabled=true;$("fb").style.color="var(--bad)";$("fb").textContent="不对，再想想";return}
+ q.done=true;b.classList.add("ok");
+ $("fb").style.color="var(--ok)";
+ $("fb").innerHTML="答对了！"+'<div class="tip" style="font-weight:400">'+st[q.i+1].t+'</div>';
+ $("nq").classList.remove("hide");
+}
+/* order-recall mode */
+var qm="choice",O=null;
+function modeUI(){
+ var h='<div class="row seg"><button data-qm="choice" class="'+(qm==="choice"?"on":"")+'">选择题</button><button data-qm="order" class="'+(qm==="order"?"on":"")+'">顺序默写</button></div>';
+ $("p2").insertAdjacentHTML("afterbegin",h);
+ $("p2").querySelectorAll("[data-qm]").forEach(function(b){b.onclick=function(){qm=b.dataset.qm;newQ()}});
+ var rw=$("p2").querySelector(".row:not(.seg)");
+ if(rw&&qm==="choice")rw.insertAdjacentHTML("beforeend",'<button data-qr="灯光" class="'+(qr==="灯光"?"on":"")+'">灯光</button>');
+}
+function newO(){
+ var st=R[qr],bank=[];
+ st.forEach(function(x,k){if(k>0&&bank.indexOf(x.n)<0)bank.push(x.n)});
+ O={n:1,miss:0,hint:0,bank:shuf(bank)};
+ drawO();
+}
+function drawO(){
+ var st=R[qr],fin=O.n>=st.length,h='<div class="row">';
+ NAMES.forEach(function(n){h+='<button data-qr="'+n+'" class="'+(n===qr?"on":"")+'">'+n+'</button>'});
+ h+='</div><div class="card"><div class="small">'+qr+'：从起点开始，按顺序点出每一步（共 '+st.length+' 步）</div><ul class="list">';
+ for(var k=0;k<O.n;k++)h+='<li>'+(k+1)+'. <b'+(st[k].a?' style="color:var(--bad)"':'')+'>'+st[k].n+'</b></li>';
+ if(!fin)h+='<li class="small">第 '+(O.n+1)+' 步是？</li>';
+ h+='</ul>';
+ if(fin){
+  h+='<div class="fb" style="color:var(--ok)">'+(O.miss===0&&O.hint===0?'全对！太棒了！':'完成！点错 '+O.miss+' 次，用提示 '+O.hint+' 次。')+'</div><div class="nav"><button id="oa" class="on">再来一次</button></div>';
+ }else{
+  h+='<div class="opts" style="grid-template-columns:1fr 1fr">';
+  O.bank.forEach(function(o){h+='<button data-o="'+o+'"'+(o==="自主变道"?' style="color:var(--bad);font-weight:700"':'')+'>'+o+'</button>'});
+  h+='</div><div id="of" class="fb"></div><div class="nav"><button id="oh">提示</button><button id="oa">重来</button></div>';
+ }
+ h+='</div>';
+ $("p2").innerHTML=h;
+ modeUI();
+ $("p2").querySelectorAll("[data-qr]").forEach(function(b){b.onclick=function(){qr=b.dataset.qr;newQ()}});
+ $("p2").querySelectorAll("[data-o]").forEach(function(b){b.onclick=function(){oPick(b.dataset.o)}});
+ if($("oa"))$("oa").onclick=newO;
+ if($("oh"))$("oh").onclick=function(){O.hint++;$("of").style.color="var(--warn)";$("of").textContent="提示：下一步是“"+R[qr][O.n].n+"”"};
+}
+function oPick(name){
+ if(name===R[qr][O.n].n){O.n++;drawO()}
+ else{O.miss++;$("of").style.color="var(--bad)";$("of").textContent="不对，再想想（点错 "+O.miss+" 次）"}
+}
+/* lights: study page + merged quiz */
+var lqd={tried:false,done:false},LH={"近光灯":"亮、口、会、跟 → 近光（照明好、有灯路口、会车、跟车）","远光灯":"黑路 → 远光（没路灯、照明不良）","远近光交替":"弯、坡、拱、人、超、无灯口 → 远近光交替","双闪 + 行车灯":"临时停车 → 开双闪 + 开行车灯"};
+function lscore(){return "一次答对 "+lok+" / "+lt+" 题 "}
+function newL2(){
+ lq=pick(L);lqd={tried:false,done:false};
+ var h='<div class="row">';
+ NAMES.forEach(function(n){h+='<button data-qr="'+n+'">'+n+'</button>'});
+ h+='</div><div class="score" id="sc">'+lscore()+'<button id="rz" style="min-height:36px;padding:4px 12px;font-size:15px">清零</button></div>';
+ h+='<div class="card"><div class="small">语音提示：夜间</div><div class="big">'+lq[0]+'</div><div>要做什么？</div><div class="opts">';
+ LO.forEach(function(o){h+='<button data-a="'+o+'">'+o+'</button>'});
+ h+='</div><div id="fb" class="fb"></div><div class="nav"><button id="nq" class="on hide">下一题</button></div></div>';
+ $("p2").innerHTML=h;
+ modeUI();
+ $("p2").querySelectorAll("[data-qr]").forEach(function(b){b.onclick=function(){qr=b.dataset.qr;qlast=-1;newQ()}});
+ $("p2").querySelectorAll("[data-a]").forEach(function(b){b.onclick=function(){lAnswer(b)}});
+ $("rz").onclick=function(){lok=0;lt=0;$("sc").firstChild.nodeValue=lscore()};
+ $("nq").onclick=newQ;
+}
+function lAnswer(b){
+ if(lqd.done)return;
+ var good=b.dataset.a===lq[1];
+ if(!lqd.tried){lqd.tried=true;lt++;if(good)lok++;$("sc").firstChild.nodeValue=lscore()}
+ if(!good){b.classList.add("bad");b.disabled=true;$("fb").style.color="var(--bad)";$("fb").textContent="不对，再想想";return}
+ lqd.done=true;b.classList.add("ok");
+ $("fb").style.color="var(--ok)";
+ $("fb").innerHTML="答对了！"+'<div class="tip" style="font-weight:400">'+LH[lq[1]]+'</div>';
+ $("nq").classList.remove("hide");
+}
+function lightPage(){
+ var G=[
+ ["近光灯","#0f8f8f","亮、口、会、跟 → 近光",["请开启前照灯","夜间在照明良好的道路上行驶","夜间直行通过路口","夜间与机动车会车","夜间同方向近距离跟车行驶","夜间通过交通信号灯控制的路口"]],
+ ["远光灯","#1e6bd6","黑路 → 远光",["夜间在没有路灯、照明不良的道路上行驶"]],
+ ["远近光交替","#a020f0","弯、坡、拱、人、超、无灯口 → 远近光交替",["夜间通过没有交通信号灯控制的路口","夜间通过急弯","夜间通过坡路","夜间通过拱桥","夜间通过人行横道","夜间超越前方车辆"]],
+ ["双闪 + 行车灯","#ef6c00","临时停车 → 开双闪 + 开行车灯",["路边临时停车"]],
+ ["关闭所有灯光","#6b7a77","结束 → 全关，继续考其他项目",["模拟夜间考试完成，请关闭所有灯光"]]
+ ];
+ var h='<div class="card"><b>灯光考试流程</b><ul class="list"><li>1. 听到“请开始考试”：下车，逆时针绕车一周（先按右后方按钮，再按左前方按钮）</li><li>2. 上车，系安全带，踩刹车，打火 → 灯光模拟开始</li><li>3. 语音说“请在5秒内做出相应的灯光操作”：<b>听完再做，5秒内完成</b></li><li>4. 灯光顺序是随机的，按下面四类操作</li><li>5. 听到“请关闭所有灯光”：关灯，继续后面的项目，再打左转向灯起步</li></ul><div class="small">具体动作以教练指导为准。</div></div>';
+ h+='<div class="mantra">口诀：亮口会跟用近光；黑路用远光；弯坡拱人超、无灯路口，远近交替；停车双闪加行车灯。</div>';
+ G.forEach(function(g){
+  h+='<div class="card" style="border-left:10px solid '+g[1]+'"><div class="big" style="font-size:28px">'+g[0]+'</div><div style="font-weight:700;color:var(--warn)">'+g[2]+'</div><div class="small" style="margin-top:6px">语音提示包括：</div><ul class="list">';
+  g[3].forEach(function(s){h+='<li>'+s+'</li>'});
+  h+='</ul></div>';
+ });
+ $("p3").innerHTML=h;
+}
+lightPage();
 build();setPoint(0);requestAnimationFrame(frame);
 learn();
 </script>
